@@ -1,0 +1,33 @@
+.features{
+    // background-color: $color-grey-light-2;
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid;              //define the grid element as a grid container
+    // grid-template-columns: repeat(3, 1fr);      //3 equal columns
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // grid-template-rows: auto auto;           //not necessary to be declared, what means that implicit rows are being created.
+    grid-gap: 6rem;
+
+    align-items: start;
+}
+
+.feature{
+    display: grid;
+    grid-template-columns: min-content 1fr;         //adapts to the size of the icon    //second column will ocupy the left space
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2rem;
+
+    &__icon{
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2;                       //if explicit grid (1 / -1)         //if implicit grid (1 / span 2)
+        
+    }
+
+    &__text{
+        font-size: 1.7rem;
+    }
+}

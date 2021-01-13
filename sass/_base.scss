@@ -1,0 +1,95 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;
+$bp-large: 62.5em;
+$bp-medium: 37.75em;
+$bp-small: 25em;
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;        //standards declarations
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;           //1rem == 10px
+
+    @media only screen and (max-width: $bp-largest){
+        font-size: 50%;
+    }
+
+    @media only screen and (max-width: $bp-large){
+        font-size: 50%;
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        font-size: 50%;
+    }
+
+    @media only screen and (max-width: $bp-small){
+        font-size: 60%;
+    }
+}
+
+body{
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+}
+
+.container{
+
+    //MAIN GRID
+    display: grid;
+    grid-template-rows: minmax(max-content, 80vh) min-content 40vw repeat(3, min-content);          //6 rows defined
+    grid-template-columns:  [sidebar-start] 8rem                                                        //sidebar width
+                            [sidebar-end full-start] minmax(6rem, 1fr)                                  //margin left between 6rem and 1fr
+                            [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //8columns with width between min content and 13rem
+                            [center-end] minmax(6rem, 1fr) [full-end];                                  //margin right between 6rem and 1fr
+    
+    @media only screen and (max-width: $bp-largest){
+        grid-template-rows: minmax(max-content, 80vh) min-content 40vw repeat(3, min-content);          //6 rows defined
+        grid-template-columns:  [sidebar-start] 8rem                                                        //sidebar width
+                            [sidebar-end full-start] minmax(6rem, 1fr)                                  //margin left between 6rem and 1fr
+                            [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //8columns with width between min content and 13rem
+                            [center-end] minmax(6rem, 1fr) [full-end];                                  //margin right between 6rem and 1fr
+    }
+                            
+    @media only screen and (max-width: $bp-large){
+        grid-template-rows: 6rem minmax(max-content, 80vh) min-content max-content repeat(3, min-content);          //6 rows defined
+        grid-template-columns:                                                                         //sidebar width
+                            [full-start] minmax(6rem, 1fr)                                  //margin left between 6rem and 1fr
+                            [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //8columns with width between min content and 13rem
+                            [center-end] minmax(6rem, 1fr) [full-end];                                  //margin right between 6rem and 1fr
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        grid-template-rows: 4rem 120vh min-content max-content repeat(3, min-content);          //6 rows defined
+    }
+
+    @media only screen and (max-width: $bp-small){
+        grid-template-rows: 4rem 80vh min-content max-content repeat(3, min-content);          //6 rows defined
+        grid-template-columns:                                                                         //sidebar width
+                            [full-start] minmax(2rem, 1fr)                                  //margin left between 6rem and 1fr
+                            [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //8columns with width between min content and 13rem
+                            [center-end] minmax(2rem, 1fr) [full-end];                                  //margin right between 6rem and 1fr
+    }
+}
